@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/anthem.ogg-8951cea849edbf93b71fbace5aaa9078.oggstr"
+
+[deps]
+
+source_file="res://data/anthem.ogg"
+dest_files=[ "res://.import/anthem.ogg-8951cea849edbf93b71fbace5aaa9078.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
