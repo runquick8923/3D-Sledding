@@ -1,6 +1,9 @@
 
 extends KinematicBody
 
+
+
+
 # Member variables
 var g = -9.8
 var vel = Vector3()
@@ -37,10 +40,12 @@ func _physics_process(delta):
 	if Input.is_action_pressed("move_right"):
 		dir += cam_xform.basis[0]
 	if Input.is_action_pressed("move_up"):
-		vel = move_and_slide(vel, Vector3(0,1,0))
-		vel.y = JUMP_SPEED
-		vel.y += 6 * delta * g
-		hvel.y += 6 * delta * g
+		var remain = (int(delta) % 3)
+		if remain == 0:
+			vel = move_and_slide(vel, Vector3(0,1,0))
+			vel.y = JUMP_SPEED
+			vel.y += 6 * delta * g
+			hvel.y += 6 * delta * g
 	if Input.is_action_pressed("pause"):
 		get_tree().paused = true
 		pauselabel.show()
@@ -88,6 +93,10 @@ func _physics_process(delta):
 	#if is_on_floor() and Input.is_action_pressed("jump"):
 	#	vel.y = JUMP_SPEED
 
+
+func fmod(x,  y):
+	return sign(x) * (abs(x) - y * floor(abs(x) / y));
+	
 
 func _on_tcube_body_enter(body):
 	if body == self:
