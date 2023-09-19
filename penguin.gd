@@ -40,7 +40,9 @@ func _physics_process(delta):
 	if Input.is_action_pressed("move_right"):
 		dir += cam_xform.basis[0]
 	if Input.is_action_pressed("move_up"):
-		var remain = (int(delta) % 3)
+		var timeDict = OS.get_time();
+		var seconds = timeDict.second;
+		var remain = (int(seconds) % 3)
 		if remain == 0:
 			vel = move_and_slide(vel, Vector3(0,1,0))
 			vel.y = JUMP_SPEED
