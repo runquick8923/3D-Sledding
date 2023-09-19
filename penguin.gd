@@ -39,16 +39,16 @@ func _physics_process(delta):
 	if Input.is_action_pressed("move_up"):
 		vel = move_and_slide(vel, Vector3(0,1,0))
 		vel.y = JUMP_SPEED
-		vel.y += delta * g
-		hvel.y += delta * g
+		vel.y += 6 * delta * g
+		hvel.y += 6 * delta * g
 	if Input.is_action_pressed("pause"):
 		get_tree().paused = true
 		pauselabel.show()
 	dir += -cam_xform.basis[2]
 	dir.y = 0
 	dir = dir.normalized()
-	vel.y += delta * g
-	hvel.y = 0
+	vel.y -= delta * g
+	hvel.y -= delta * g
 	var sfxpop = get_node('/root/world/wind')
 	sfxpop.set_volume_db(vel.x * 0.3)
 	var target = dir * MAX_SPEED
