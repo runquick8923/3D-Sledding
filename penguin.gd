@@ -42,7 +42,7 @@ func _physics_process(delta):
 	if Input.is_action_pressed("move_up"):
 		var timeDict = OS.get_time();
 		var seconds = timeDict.second;
-		var remain = (int(seconds) % 3)
+		var remain = (int(seconds) % 6)
 		if remain == 0:
 			vel = move_and_slide(vel, Vector3(0,1,0))
 			vel.y = JUMP_SPEED
